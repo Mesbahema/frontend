@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fa">
+    <title>Final Project</title>
+    <link rel="icon" href="pics/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="mystyle.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="all" href="calender/theme.css" title="Aqua" />
+    <script type="text/javascript" src="calender/jalali.js"></script>
+    <script type="text/javascript" src="calender/calendar.js"></script>
+    <script type="text/javascript" src="calender/calendar-setup.js"></script>
+    <script type="text/javascript" src="calender/calendar-fa.js"></script>
+    <script type="text/javascript">
+        function setActiveStyleSheet(title) {
+            var i, a, main;
+            for (i = 0; (a = document.getElementsByTagName("link")[i]); i++) {
+                if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+                    a.disabled = true;
+                    if (a.getAttribute("title") == title) a.disabled = false;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="500">
+    <nav class="navbar pull-right navbar-expand-md font-weight-bold fixed">
+        <button class="btn font-weight-bold ml-3 nav-btn" id="enter">ورود</button>
+        <button class="btn font-weight-bold ml-3 nav-btn" id="sign-up">ثبت نام</button>
+        <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#collapse_target">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <ul class="navbar-nav ml-auto list-group">
+                <li class="nav-item ml-auto mr-4">
+                    <a class="nav-link about_us-marker" href="#about_us">درباره ی ما </a>
+                </li>
+                <li class="nav-item ml-auto mr-4">
+                    <a class="nav-link" href="#get_know">آشنایی با ما</a>
+                </li>
+                <li class="nav-item ml-auto mr-4">
+                    <a class="nav-link services-marker" href="#services">سرویس ها</a>
+                </li>
+                <li class="nav-item ml-auto mr-4">
+                    <a class="nav-link" href="#customers">مشتریان</a>
+                </li>
+                <li class="nav-item ml-auto mr-4">
+                    <a class="nav-link" href="#contact"> تماس با ما </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="modal-container" id="modal-container-1">
+        <div class="modal-1">
+            <h3>ورود</h3>
+            <i class="fas fa-times-circle" id="close-1"></i>
+            <hr>
+            <h5><i class="fas fa-user"></i>&nbsp;نام کاربری</h5>
+            <input type="comment" class="form-control" placeholder="نام کاربری خود را وارد کنید" id="email"><br />
+            <h5><i class="fas fa-key"></i>&nbsp;رمز عبور</h5><br />
+            <input type="comment" class="form-control" placeholder="رمز خود را وارد کنید" id="email"><br />
+            <button class="btn btn-success">ثبت نام</button>
+            <hr>
+            <a href="#ref">رمز عبور</a> خود را فراموش کرده اید؟
+        </div>
+    </div>
+    <div class="modal-container" id="modal-container-2">
+        <div class="modal-1" id="modal-sign-up">
+            <h3 >ثبت نام</h3>
+            <i class="fas fa-times-circle" id="close-2"></i>
+            <hr>
+            <h5><i class="fas fa-user"></i>&nbsp;نام کاربری</h5><br />
+            <input type="comment" class="form-control" placeholder="نام کاربری خود را وارد کنید" id="email"><br />
+            <h5><i class="fas fa-key"></i>&nbsp;رمز عبور</h5><br />
+            <input type="comment" class="form-control" placeholder="رمز خود را وارد کنید" id="email"><br />
+            <h5><i class="fas fa-envelope"></i>&nbsp;ایمیل</h5><br />
+            <input type="comment" class="form-control" placeholder="ایمیل خود را وارد کنید" id="email"><br />
+            <button class="btn btn-success">ثبت نام</button>
+            <hr>
+            قبلا <a href="#ref">ثبت نام</a> کرده اید؟
+        </div>
+    </div>
+    <div class="fixed-image-container" id="fixed-image-container-1"><img class="fixed-image" id="fixed-image-1" src="pics/gallery_1.jpg"
+            alt="">
+        <h1 class="close-btn" id="close-btn-1"><i class="fas fa-times"></i></h1>
+    </div>
+    <div class="fixed-image-container" id="fixed-image-container-2"><img class="fixed-image" id="fixed-image-2" src="pics/gallery_2.jpg"
+            alt="">
+        <h1 class="close-btn" id="close-btn-2"><i class="fas fa-times"></i></h1>
+    </div>
+    <div class="fixed-image-container" id="fixed-image-container-3"><img class="fixed-image" id="fixed-image-3" src="pics/gallery_3.jpg"
+            alt="">
+        <h1 class="close-btn" id="close-btn-3"><i class="fas fa-times"></i></h1>
+    </div>
+    <div id="ref"></div>
+    <img src="pics/wallpaper_1.jpg" class="background_image" id="image_1" alt="">
+    <img src="pics/wallpaper_2.jpg" class="background_image" id="image_2" alt="">
+    <img src="pics/wallpaper_3.jpg" class="background_image" id="image_3" alt="">
+    <div id="wrapper">
+        <img src="pics/wallpaper_1.jpg" class="image_regulator" alt="">
+        <div class="container-fluid">
+            <div class="row text" id="section_1">
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5">
+                    <h1 class="display-1 mt-2"><i class="fas fa-dumbbell"></i></h1><br />
+                    <h3 class="font-weight-bold">قدرت بالا</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5">
+                    <h1 class="display-1 mt-2"><i class="fas fa-drafting-compass"></i></h1><br />
+                    <h3 class="font-weight-bold">خلاقیت</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5">
+                    <h1 class="display-1 mt-2"><i class="fab fa-gitkraken"></i></h1><br />
+                    <h3 class="font-weight-bold">انعطاف پذیری</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5">
+                    <h1 class="display-1 mt-2"><i class="fab fa-envira"></i></h1><br />
+                    <h3 class="font-weight-bold">محیط زیست</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+            </div>
+            <div class="row text" id="about_us">
+                <div class="col-lg 1 col-md-1 col-sm-1 col-1"></div>
+                <div class="col-lg-3 col-md-5 col-sm-3  col-11 display-1 h1 mt-5 p-5"><i class="fas fa-chart-bar"></i></div>
+                <div class="col-lg-8 col-md-6 col-sm-8  col-12 p-5">
+                    <h1>درباره ما</h1><br /><dt class="h4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;به گزارش خبرگزاري صداوسيما؛
+                        مرکز خلیج فارس؛ مدیرعامل پا
+                        لایشگاه شرکت نفت
+                        ستاره خلیج فارس گفت:
+                        اکنون به‌طور میانگین روزان
+                        ه ۳۰ میلیون لیتر بنزین یورو ۵ در این پالایشگاه تولید می‌شود که
+                        این ظرفیت با تثبیت مرحله سوم تا پایان امسال به ۴۴ میلیون لیتر در روز می‌رسد.
+                        محمد علی دادور افزود: ساخت مرحله چهارم پالایشگاه از شهریور ماه امسال با ظرفیت ۱۲ میلیون لیتر در
+                        روز آغاز شده است و بر اساس برنامه هدفگذاری شده تا دو سال آینده به بهره برداری می‌رسد.
+                        وی گفت: با بهره برداری از مرحله چهارم میزان تولید بنزین یورو ۵ در پالایشگاه نفت ستاره به ۵۵
+                        میلیون لیتر در روز می‌رسد.
+                        مدیر عامل شرکت نفت ستاره خلیج فارس افزود: بنزین تولیدی این پالایشگاه با اکتان بالا و حذف
+                        آلاینده محیطی زیستی بر اساس استاندارد یورو ۵ است.
+                        به گزارش خبرگزاري صداوسيما؛ مرکز خلیج فارس؛ مدیرعامل پا لایشگاه شرکت نفت ستاره خلیج فارس گفت:
+                        اکنون به‌طور میانگین روزان ه ۳۰ میلیون لیتر بنزین یورو ۵ در این پالایشگاه تولید می‌شود که این
+                        ظرفیت با تثبیت مرحله سوم تا پایان امسال به ۴۴ میلیون لیتر در روز می‌رسد. محمد علی دادور افزود:
+                        ساخت مرحله چهارم پالایشگاه از شهریور ماه امسال با ظرفیت ۱۲ میلیون لیتر در روز آغاز شده است و بر
+                        اساس برنامه هدفگذاری شده تا دو سال آینده به بهره برداری می‌رسد. وی گفت: با بهره برداری از مرحله
+                        چهارم میزان تولید بنزین یورو ۵ در پالایشگاه نفت ستاره به ۵۵ میلیون لیتر در روز می‌رسد. مدیر
+                        عامل شرکت نفت ستاره خلیج فارس افزود: بنزین تولیدی این پالایشگاه با اکتان بالا و حذف آلاینده
+                        محیطی زیستی بر اساس استاندارد یورو ۵ است.
+                    </dt>
+                </div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row text p-5" id="get_know">
+                <div class="col-lg-12 h1">
+                    آشنایی با ما
+                </div>
+
+                <div class="col-lg-1 col-md-1 blaked"></div>
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-3 p-1">
+                    <img class="img-thumbnail" src="pics/gallery_1.jpg" alt="" width="100%" height="auto" id="gallery_1">
+                </div>
+                <div class="col-lg-1 col-md-1 blaked"></div>
+                <div class="col-lg-3 col-md-3 col-sm-12 mt-3 p-1">
+                    <img class="img-thumbnail" src="pics/gallery_2.jpg" alt="" width="100%" height="auto" id="gallery_2">
+                </div>
+                <div class="col-lg-1 col-md-1 blaked"></div>
+                <div class="col-lg-3 col-md-3 col-sm-12  mt-3 p-1">
+                    <img class="img-thumbnail" src="pics/gallery_3.jpg" alt="" width="100%" height="auto" id="gallery_3">
+                </div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row text p-5" id="services">
+                <div class="col-lg-12 h1">
+                    سرویس ها
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fas fa-dumbbell"></i></h1><br />
+                    <h3 class="font-weight-bold">قدرت بالا</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fas fa-drafting-compass"></i></h1><br />
+                    <h3 class="font-weight-bold">خلاقیت</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fab fa-gitkraken"></i></h1><br />
+                    <h3 class="font-weight-bold">انعطاف پذیری</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fab fa-envira"></i></h1><br />
+                    <h3 class="font-weight-bold">محیط زیست</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fas fa-dumbbell"></i></h1><br />
+                    <h3 class="font-weight-bold">قدرت بالا</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fas fa-drafting-compass"></i></h1><br />
+                    <h3 class="font-weight-bold">خلاقیت</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fab fa-gitkraken"></i></h1><br />
+                    <h3 class="font-weight-bold">انعطاف پذیری</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 p-5 hide">
+                    <h1 class="display-1 mt-2"><i class="fab fa-envira"></i></h1><br />
+                    <h3 class="font-weight-bold">محیط زیست</h3><br />
+                    <h5 class="font-weight-bold">این یک متن نمونه است که برای پروژه ی پایانی طراحی صفحات وب درنظر گرفته
+                        شده است</h5>
+                </div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+
+            </div>
+
+
+            <div class="row text" id="demo-container">
+                <div class="col-lg-12 h1 pt-5 text-center" id="customers">
+                    مشتریان
+                </div>
+                <div id="demo" class="carousel slide p-5" data-ride="carousel">
+
+
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+
+
+                    <div class="carousel-inner text-dark font-weight-bold bg-primary">
+                        <div class="carousel-item active">
+                            <img class="carousel-img" src="pics/gallery_1.jpg" alt="" width="100%" height="auto">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="carousel-img" src="pics/gallery_2.jpg" alt="" width="100%" height="auto">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="carousel-img" src="pics/gallery_3.jpg" alt="" width="100%" height="auto">
+                        </div>
+                    </div>
+
+
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <h1><i class="fas fa-angle-left"></i></h1>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <h1><i class="fas fa-angle-right"></i></h1>
+                    </a>
+
+                </div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="p-3 row" id="calculator">
+                <div class="col-lg-4 col-md-5 col-sm-12">
+                    <div class="mt-5 ml-2" id="calc-container">
+                        <div class="screen">
+
+                        </div>
+                        <div class="btns">
+
+
+                            <div>
+                                <input type="button" value="SIN" class="btn btn-dark" id="sin">
+                                <input type="button" value="COS" class="btn btn-dark" id="cos">
+                                <input type="button" value="TAN" class="btn btn-dark" id="tan">
+                                <input type="button" value="(-)" class="btn btn-dark" id="neg">
+                                <input type="button" value="ABS" class="btn btn-dark" id="abs">
+                            </div>
+                            <div>
+                                <input type="button" value="&radic;" class="btn btn-dark" id="radic">
+                                <input type="button" value="SQR" class="btn btn-dark" id="sqr">
+                                <input type="button" value="(" class="btn btn-dark" id="popen">
+                                <input type="button" value=")" class="btn btn-dark" id="pclose">
+                                <input type="button" value="Ln" class="btn btn-dark" id="log">
+                            </div>
+                            <div>
+                                <input type="button" value="CLR" class="btn btn-dark" id="clear">
+                                <input type="button" value="^" class="btn btn-dark" id="pow">
+                                <input type="button" value="M+" class="btn btn-dark" id="mplus">
+                                <input type="button" value="M-" class="btn btn-dark" id="mmine">
+                                <input type="button" value="Mc" class="btn btn-dark" id="mc">
+                            </div>
+
+                            <div>
+                                <input type="button" value="7" class="btn btn-secondary" id="seven">
+                                <input type="button" value="8" class="btn btn-secondary" id="eight">
+                                <input type="button" value="9" class="btn btn-secondary" id="nine">
+                                <input type="button" value="DEL" class="btn btn-danger" id="del">
+                                <input type="button" value="AC" class="btn btn-danger" id="ac">
+                            </div>
+                            <div>
+                                <input type="button" value="4" class="btn btn-secondary" id="four">
+                                <input type="button" value="5" class="btn btn-secondary" id="five">
+                                <input type="button" value="6" class="btn btn-secondary" id="six">
+                                <input type="button" value="X" class="btn btn-secondary" id="cross">
+                                <input type="button" value="/" class="btn btn-secondary" id="frac">
+                            </div>
+                            <div>
+                                <input type="button" value="1" class="btn btn-secondary" id="one">
+                                <input type="button" value="2" class="btn btn-secondary" id="two">
+                                <input type="button" value="3" class="btn btn-secondary" id="three">
+                                <input type="button" value="+" class="btn btn-secondary" id="plus">
+                                <input type="button" value="-" class="btn btn-secondary" id="mines">
+                            </div>
+                            <div>
+                                <input type="button" value="0" class="btn btn-secondary" id="zero">
+                                <input type="button" value="." class="btn btn-secondary" id="dot">
+                                <input type="button" value="e" class="btn btn-secondary" id="neper">
+                                <input type="button" value="&pi;" class="btn btn-secondary" id="pi">
+                                <input type="button" value="=" class="btn btn-secondary" id="equal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-6 col-6"></div>
+                <div class="mt-3 col-lg-2 col-md-3 col-sm-6 col-6" id="calender">
+                    <h5 class="claneder_inner font-weight-bold">تاریخ را انتخاب کنید</h5>
+                    <div id="popup_calendar">
+                        <input id="date_input_field" type="text" /><img id="date_btn" src="cal.png" style="vertical-align: top;" />
+                    </div>
+                    <table>
+                        <tr>
+                            <td id="flat_calendar"></td>
+                        </tr>
+                    </table>
+
+                    <script type="text/javascript">
+                        setActiveStyleSheet("Aqua");
+                        var popupCal = Calendar.setup({
+                            inputField: "date_input_field",   // id of the input field
+                            button: "date_btn",   // trigger for the calendar (button ID)
+                            ifFormat: "%Y-%m-%d",       // format of the input field
+                            dateType: "jalali",
+                        });
+                    </script>
+                    <div id="popup_calendar">
+                        <input id="date_input_field_1" type="text" /><img id="date_btn_1" src="cal.png" style="vertical-align: top;" />
+                    </div>
+                    <table>
+                        <tr>
+                            <td id="flat_calendar"></td>
+                        </tr>
+                    </table>
+
+                    <script type="text/javascript">
+                        setActiveStyleSheet("Aqua");
+                        var popupCal = Calendar.setup({
+                            inputField: "date_input_field_1",   // id of the input field
+                            button: "date_btn_1",   // trigger for the calendar (button ID)
+                            ifFormat: "%Y-%m-%d",       // format of the input field
+                            dateType: "jalali",
+                        });
+                    </script>
+
+                </div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row" id="video-container">
+                <iframe src="https://www.aparat.com/video/video/embed/videohash/2JyT3/vt/frame" height="360" width="640"
+                    allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row text" id="contact">
+                <div class="h1 col-lg-12 p-5">تماس با ما</div>
+                <div class="col-lg-3 col-md-3 col-sm-3"></div>
+                <div class="col-lg-3 col-md-3 col-sm-3" id="sub-contact">
+                    <p>از طریق را های زیر می توانید با ما در تماس باشید</p>
+                    <p><i class="fas fa-mobile-alt"></i>&nbsp; 09025050634</p>
+                    <p><i class="far fa-envelope"></i>&nbsp; emamim612@gmail.com</p>
+                    <p><i class="fas fa-map-pin"></i>&nbsp; Tehran,Iran</p>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                <div class="col-lg-3  col-md-3 col-sm-3">
+                    <div class=" ">
+                        <input type="name" class="form-control" placeholder="نام" id="email" width="10">
+                        <input type="email" class=" form-control" placeholder="ایمیل" id="email">
+                    </div>
+                    <input type="comment" class="form-control" placeholder="نظر" id="email">
+                    <button type="submit" class="btn btn-primary font-weight mt-2">ارسال</button>
+                </div>
+            </div>
+            <div class="row pt-4 pb-4" id="map-container">
+                <div id="map"></div>
+            </div>
+            <div class="row blanked">
+                <img src="pics/space.jpg" class="image_regulator" alt="">
+            </div>
+            <div class="row" id="footer">
+                <div class="col-lg-12 text-center pt-3 pb-3"><a href="#ref">
+                        <h1><i class="fas fa-angle-up"></i></h1>
+                    </a><br />
+                    <h4>پرش به بالا</h4><br />
+                    <form action="http://google.com">
+                        <input type="submit" class="btn btn-info" value="Go to Google" />
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function initMap() {
+            var options = {
+                zoom: 13,
+                center: { lat: 35.7036, lng: 51.3516 }
+            }
+            var map = new
+                google.maps.Map(document.getElementById('map'), options);
+            var marker = new google.maps.Marker({
+                position: { lat: 35.7036, lng: 51.3516 },
+                map: map
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6WwTI-X8TL2xQHGrcr26KNiltKCJ2rSE&callback=initMap"
+        async defer>
+        </script>
+</body>
+<script type="text/javascript" src="myscripts.js"></script>
+
+</html>
